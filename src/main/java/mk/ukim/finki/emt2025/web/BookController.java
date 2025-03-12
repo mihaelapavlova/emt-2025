@@ -1,6 +1,7 @@
 package mk.ukim.finki.emt2025.web;
 
 import mk.ukim.finki.emt2025.model.Book;
+import mk.ukim.finki.emt2025.model.Category;
 import mk.ukim.finki.emt2025.model.dto.BookDto;
 import mk.ukim.finki.emt2025.service.BookService;
 import org.springframework.http.ResponseEntity;
@@ -34,6 +35,10 @@ public class BookController {
         return bookService.save(book)
                 .map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());
+    }
+    @GetMapping("/category/{category}")
+    public List<Book> getBooksByCategory(@PathVariable Category category) {
+        return bookService.findByCategory(category);
     }
 
     @PutMapping("/edit/{id}")

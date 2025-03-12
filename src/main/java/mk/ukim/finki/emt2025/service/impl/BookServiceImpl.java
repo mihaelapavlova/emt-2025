@@ -1,6 +1,7 @@
 package mk.ukim.finki.emt2025.service.impl;
 
 import mk.ukim.finki.emt2025.model.Book;
+import mk.ukim.finki.emt2025.model.Category;
 import mk.ukim.finki.emt2025.model.dto.BookDto;
 import mk.ukim.finki.emt2025.repository.BookRepository;
 import mk.ukim.finki.emt2025.service.AuthorService;
@@ -65,5 +66,9 @@ public class BookServiceImpl implements BookService {
     @Override
     public void deleteById(Long id) {
         this.bookRepository.deleteById(id);
+    }
+    @Override
+    public List<Book> findByCategory(Category category) {
+        return this.bookRepository.findByCategory(category);
     }
 }

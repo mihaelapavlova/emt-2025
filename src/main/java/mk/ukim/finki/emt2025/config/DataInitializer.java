@@ -12,12 +12,17 @@ import mk.ukim.finki.emt2025.repository.CountryRepository;
 import org.springframework.stereotype.Component;
 
 @Component
-@RequiredArgsConstructor
 public class DataInitializer {
 
     private final CountryRepository countryRepository;
     private final AuthorRepository authorRepository;
     private final BookRepository bookRepository;
+
+    public DataInitializer(CountryRepository countryRepository, AuthorRepository authorRepository, BookRepository bookRepository) {
+        this.countryRepository = countryRepository;
+        this.authorRepository = authorRepository;
+        this.bookRepository = bookRepository;
+    }
 
     @PostConstruct
     public void init() {

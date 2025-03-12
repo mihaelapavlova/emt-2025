@@ -1,6 +1,7 @@
 package mk.ukim.finki.emt2025.service;
 
 import mk.ukim.finki.emt2025.model.Book;
+import mk.ukim.finki.emt2025.model.Category;
 import mk.ukim.finki.emt2025.model.dto.BookDto;
 import org.springframework.stereotype.Service;
 
@@ -13,4 +14,5 @@ public interface BookService {
     Optional<Book> update(Long id,BookDto book);
     Optional<Book>save(BookDto book);
     void deleteById(Long id);
+    List<Book> findByCategory(Category category);
 }
